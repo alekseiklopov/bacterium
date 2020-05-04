@@ -20,15 +20,12 @@ def count_bacteria(image: numpy.ndarray) -> int:
 
     cv2.drawContours(image, cnts, -1, (0, 0, 255), 1)
 
-    # cv2.imshow("blurred", blurred)
-    # cv2.imshow("edged", edged)
-    # cv2.imshow("closed", closed)
     return len(cnts)
 
 
 def process_image(image_name: str):
     image = cv2.imread(image_name)
-    # image = imutils.resize(image, width=1000)
+    
     number_of_bacteria = count_bacteria(image)
 
     print("{} bacteria found".format(number_of_bacteria))
